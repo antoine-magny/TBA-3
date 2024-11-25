@@ -42,6 +42,6 @@ class Room:
     next_room = current_room.get_exit(direction)
     if next_room:
         current_room = next.room
-    print(current_room.get_long_description.")
+    print(current_room.get_long_description.)
     else:
         print("Vous ne pouvez pas aller dans cette direction.")
