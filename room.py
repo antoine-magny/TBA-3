@@ -29,3 +29,19 @@ class Room:
     # Return a long description of this room including exits.
     def get_long_description(self):
         return f"\nVous êtes {self.description}\n\n{self.get_exit_string()}\n"
+    
+    # definir un passage interdit
+    
+    forest.set_forbidden_exit("E")
+    tower.set_forbidden_exit("O")
+    
+    # test passeage interdit 
+    current_room = forest 
+    direction = "E"
+    
+    next_room = current_room.get_exit(direction)
+    if next_room:
+        current_room = next.room
+    print(current_room.get_long_description.")
+    else:
+        print("Vous ne pouvez pas aller dans cette direction.")
