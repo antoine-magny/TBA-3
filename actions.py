@@ -5,7 +5,7 @@
 # - game: the game object
 # - list_of_words: the list of words in the command
 # - number_of_parameters: the number of parameters expected by the command hhh
-# The functions return True if the command was executed successfully, False otherwise. 
+# The functions return True if the command was executed successfully, False otherwise. test 1234567
 # The functions print an error message if the number of parameters is incorrect.
 # The error message is different depending on the number of parameters expected by the command.
 
