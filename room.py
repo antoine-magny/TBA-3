@@ -34,6 +34,7 @@ class Room:
     
     forest.set_forbidden_exit("E")
     tower.set_forbidden_exit("O")
+    tower.set_forbidden_exit("S")
     
     # test passeage interdit 
     current_room = forest 
@@ -45,3 +46,4 @@ class Room:
         print(current_room.get_long_description.)
     else:
         print("Vous ne pouvez pas aller dans cette direction.")
+        
