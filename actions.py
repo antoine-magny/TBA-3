@@ -8,7 +8,7 @@
 # The functions return True if the command was executed successfully, False otherwise. 
 
 
-# The functions print an error message if the number of parameters is incorrect.jbg
+# The functions print an error message if the number of parameters is incorrect.
 # The error message is different depending on the number of parameters expected by the command.
 
 
