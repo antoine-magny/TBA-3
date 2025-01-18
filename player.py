@@ -51,9 +51,20 @@ class Player():
             return False
 
         if next_room == "mort":
-            print("""\nDe terribles monstres marins rôdent par içi.
-            Soudain, un énorme vache des mers renverse votre navire !
-            Vous êtes de mort !\n""")
+            print("\nDe terribles monstres marins rôdent par içi. "
+            "Soudain, un énorme vache des mers renverse votre navire ! "
+            "Vous êtes de mort !\n")
+            game.finished = True
+            return False
+        if next_room == "One-Piece":
+            print("\nVous êtes arrivés sur la dernière île : Laugh Tale ! "
+            "Vous vous mettez à rire gaiement! Vous ne pouvez plus vous arrêter de rire... "
+            "\n"
+            "\nC'est ainsi que s'achêve votre aventure de pirate !\n"
+            "\n"
+            "\n"
+            "\n"
+            "================================The End================================")
             game.finished = True
             return False
 
