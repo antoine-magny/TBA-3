@@ -9,6 +9,7 @@ from actions import Actions
 from item import Item
 from character import Character
 import random
+from config import DEBUG
 
 
 class Game:
