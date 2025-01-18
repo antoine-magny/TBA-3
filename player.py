@@ -58,7 +58,8 @@ class Player():
             return False
         if next_room == "laugh_tale" :
             print("\nVous êtes arrivés sur la dernière île : Laugh Tale ! "
-            "Vous vous mettez à rire gaiement! Vous ne pouvez plus vous arrêter de rire... "
+            "Vous vous mettez à rire gaiement ! "
+            "\n Vous ne pouvez plus vous arrêter de rire... "
             "\n"
             "\n"
             "\n"
@@ -66,7 +67,7 @@ class Player():
             "\n"
             "\n"
             "\n"
-            "================================The End================================")
+            "========================================The End========================================")
             game.finished = True
             return False
 
