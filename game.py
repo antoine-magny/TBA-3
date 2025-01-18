@@ -68,35 +68,35 @@ class Game:
         
         Fuschia_Village = Room("Fuschia_Village", "dans le paisible village natal de Luffy, situé en bord de mer. Attention aux monstres marins qui rôdent autour !")
         self.rooms.append(Fuschia_Village)
-        
+
         Shells_Town = Room("Shells_Town", "dans une ville où la Marine est omniprésente, dominée par une immense base militaire. Un certain Capitaine Morgan y fait régner la terreur. Il retient prisonnier un sabreur et un tireur d'élite.")
         self.rooms.append(Shells_Town)
-        
-        Baratie = Room("Baratie", " dans un restaurant flottant connu pour sa cuisine exceptionel et ses batailles épiques. Un certain Sanji y est chef cuisinier.")
+
+        Baratie = Room("Baratie", "dans un restaurant flottant connu pour sa cuisine exceptionnelle et ses batailles épiques. Un certain Sanji y est chef cuisinier.")
         self.rooms.append(Baratie)
-         
-        Grand_Line = Room("Grand Line", "au milieu des mers ce trouve un passage à sens unique vers l'avenir")
+
+        Grand_Line = Room("Grand Line", "au milieu des mers se trouve un passage à sens unique vers la route des pirates !")
         self.rooms.append(Grand_Line)
 
-        Royaume_de_Drum = Room("Royaume de Drum"," dans une iles où le froid reigne, on y trouve un certain medecin appelé Chopper")    
-        self.rooms.append(Royaume_de_Drum)   
+        Royaume_de_Drum = Room("Royaume de Drum", "dans une île où le froid règne, on y trouve un certain médecin appelé Chopper.")
+        self.rooms.append(Royaume_de_Drum)
 
-        Pays_de_Wa = Room("Pays de Wa"," un pays ou les samourais vive en paix. Ce trouve un indice important pour le trésor")  
+        Pays_de_Wa = Room("Pays de Wa", "un pays où les samouraïs vivent en paix.")
         self.rooms.append(Pays_de_Wa)
 
-        Alabasta = Room("Alabasta", "un pays de sable, un pays aride mélangé de pauvreté et de grande richesses, ce trouve la dernier femme de cette planete à pouvoir lire des indices pour trouver le trésor")
-        self.rooms.append(Alabasta)
-
-        Dresserosa = Room("Dresserosa" , " dans une ville où reigne un tiran qui traransforme ses malfeteurs en jouets pour enfants, ce trouve un indice important pour le trésor")
+        Dresserosa = Room("Dresserosa", "dans une ville où règne un tyran qui transforme ses malfaiteurs en jouets pour enfants.")
         self.rooms.append(Dresserosa)
 
-        Little_Garden = Room("Little Garden" , "une iles ou 2 géant de 100ans ce battent pour la gloire")
+        Little_Garden = Room("Little Garden", "une île où deux géants de 100 ans se battent pour la gloire.")
         self.rooms.append(Little_Garden)
 
-        Skypiéa = Room("Skypiéa","une ile volante, où ce trouve un indice imporant pour le trésor")
-        self.rooms.append(Skypiéa)
+        Alabasta = Room("Alabasta", "un royaume désertique où règne une lutte contre un crocodile des sables.")
+        self.rooms.append(Alabasta)
 
-        Laugh_Tale = Room("Laugh Tale","une ile secréte qui referme un trésor si tout les indices sont trouvés")
+        Skypiea = Room("Skypiea", "une île céleste, flottant dans un océan de nuages.")
+        self.rooms.append(Skypiea)
+
+        Laugh_Tale = Room("Laugh Tale", "une île légendaire : la dernière île de Grand Line. Vous avez trouvé le One Piece ! Félicitations !")
         self.rooms.append(Laugh_Tale)
 
         # Create exits for rooms
@@ -109,17 +109,10 @@ class Game:
         Pays_de_Wa.exits = {"N": Royaume_de_Drum, "E": None, "S": Laugh_Tale, "O": Alabasta, "U": None, "D": None}
         Alabasta.exits = {"N": Grand_Line, "E": Pays_de_Wa, "S": "mort", "O": Dresserosa, "U": None, "D": None}
         Dresserosa.exits = {"N": Little_Garden, "E": Alabasta, "S": "mort", "O": None, "U": None, "D": None}
-        Little_Garden.exits = {"N": None, "E": Grand_Line, "S": Dresserosa, "O": None, "U": Skypiéa, "D": None}
-        Skypiéa.exits = {"N": None, "E": None, "S": None, "O": None, "U": None, "D": Little_Garden}
+        Little_Garden.exits = {"N": None, "E": Grand_Line, "S": Dresserosa, "O": None, "U": Skypiea, "D": None}
+        Skypiea.exits = {"N": None, "E": None, "S": None, "O": None, "U": None, "D": Little_Garden}
         Laugh_Tale.exits = {"N": Pays_de_Wa, "E": None, "S": None, "O": None, "U": None, "D": None}
         
-        """
-        
-        Demander à maxence de me faire le monde de one piece
-        Genre les objets les îles et les personnages 
-        
-        
-        """
         
         # Ajout des objets sur les îles
         gomu_gomu_no_mi = {"description": "Fruit du démon qui donne des pouvoirs élastiques", "weight": 0.5}
@@ -127,29 +120,27 @@ class Game:
         wado_ichimonji = {"description": "L'épée donnée à titre posthume par Kuina à zoro ", "weight": 2.0}        
         shusui = {"description": "L'épée légendaire du samouraï Ryuma", "weight": 2.0}
         lance_pierre = {"description": "L'arme de prédilection d'Usopp", "weight": 1.0}        
-        Jambe_noir = {"description": "La jambe droite de Sanji", "weight": 0.5} 
         Rumble_Ball = {"description": "Une Drogue rendant Chopper très puissant", "weight": 0.5} 
-        Hana_Hana_no_Mi = {"description": "Fruit des éclosions", "weight": 0.5}
-        Ito_Ito_No_Mi = {"description": "Fruit des fils", "weight": 0.5}
-        Hache_du_Cogneur = {"description": "Une hache pour les géant", "weight": 100.0}
-        Terry_Sword = {"description": "Une épée pour les géant", "weight": 75.0}
+        Hana_Hana_no_Mi = {"description": "Fruit du démon des éclosions", "weight": 0.5}
+        Ito_Ito_No_Mi = {"description": "Fruit du démon des fils", "weight": 0.5}
+        Hache_du_Cogneur = {"description": "Une hache pour Dorry, un des géants de Little Garden", "weight": 100.0}
+        Epee_Brogy = {"description": "Une épée pour Brogy, un des géants les géants de Little Garden", "weight": 75.0}
         Uo_Uo_no_Mi = {"description": "Fruit du dragon oriental", "weight": 4.0}
         One_piece = {"description": "Le trésor le plus Grand de tout les temps"}
+
+
         # Ajout des objets sur les îles
         # lieu.inventory[clé] = valeur (la valeur étant le dictionnaire définit précédement)
-        
-        
         Fuschia_Village.inventory["Gomu Gomu no Mi"] = gomu_gomu_no_mi
         Shells_Town.inventory["Shimotsuki_Kozaburo_Katanas"] = Shimotsuki_Kozaburo_Katanas
         Shells_Town.inventory["Wado Ichimonji"] = wado_ichimonji
         Shells_Town.inventory["Shusui"] = shusui
         Shells_Town.inventory["Lance-pierre"] = lance_pierre
-        Baratie.inventory["Jambe Noir"]= Jambe_noir
         Royaume_de_Drum.inventory["Rumble Ball"]= Rumble_Ball
         Alabasta.inventory["Hana Hana no Mi"]= Hana_Hana_no_Mi
         Dresserosa.inventory["Ito Ito no Mi"]= Ito_Ito_No_Mi
         Little_Garden.inventory["Hache du Cogneur"]= Hache_du_Cogneur
-        Little_Garden.inventory["Terry Sword"]= Terry_Sword
+        Little_Garden.inventory["Terry Sword"]= Epee_Brogy
         Pays_de_Wa.inventory["Uo Uo no Mi"]= Uo_Uo_no_Mi
         Laugh_Tale.inventory["One Piece"]= One_piece
 
@@ -158,13 +149,13 @@ class Game:
         makino = Character("Makino", None, "La serveuse du bar de Fuschia Village", ["Tu veux une bière, mon ptit ?", "Bois un jus Luffy !"])
         arlong = Character("Arlong", None, "Chef des hommes-poissons et maître d'Arlong Park", ["Rendez-vous humains !", "Nami sera à moi pour toujours."])
         Zoro = Character("Zoro",None, "Un sabreurà 3 épées " , [ "Les cicatrices sur le dos sont la honte d'un épéiste"])
-        Sanji = Character("Sanji",None, "Un cuisinier d'éxection" , ["La cuisine est un don de dieu, les epices un don du diable... je crois que c'était un peu trop épicé pour toi"])
-        Chopper = Character("Chopper", None,"Un reine médecin" ,["Luffy, si pour que tu atteignes ton but je dois devenir un monstre, alors j'en deviendrais un !!"])
-        Robin = Character("Robin", None,"La seule personne sur la planete à lire les ecritures anciennes" ,["L'histoire se répète sans cesse, mais les hommes ne peuvent retourner dans le passé"])
-        Dorry = Character("Dorry", None,"Un géant ce battant pour la gloire" ,["La raison de ce combat, il y a belle lurette qu'on l'a oubliée"])
-        Brogy =Character("Brogy", None,"Un géant ce battant pour la gloire" ,["Un siècle... ce fut vraiment un long combat!"])
-        Doflamigo = Character("Doflamigo", None,"Un tiran animé par le pouvoir" ,["Les faibles ne pourront pas s'échapper, les forts feront la loi, place à une nouvelle ère"])
-        Momo = Character("Momo", None,"Un jeune souverain du Pays de Wa et fils du héros de ce pays" ,["Comment pouvons- noius vous regarder dans les yeux ?"])
+        Sanji = Character("Sanji",None, "Un cuisinier d'exception" , ["La cuisine est un don de dieu, les épices un don du diable... je crois que ce plat était un peu trop épicé pour toi !"])
+        Chopper = Character("Chopper", None,"Un reine médecin" ,["Luffy, si pour que tu atteins ton but je dois devenir un monstre, alors j'en deviendrais un !!"])
+        Robin = Character("Robin", None,"La seule personne sur la planete à lire les écritures anciennes" ,["L'histoire se répète sans cesse, mais les hommes ne peuvent retourner sur le passé"])
+        Dorry = Character("Dorry", None,"Un géant se battant pour la gloire" ,["La raison de ce combat, il y a belle lurette qu'on l'a oubliée"])
+        Brogy =Character("Brogy", None,"Un géant se battant pour la gloire" ,["Un siècle... ce fut vraiment un long combat!"])
+        Doflamigo = Character("Doflamigo", None,"Un tiran animé par le pouvoir" ,["Les faibles ne pourront pas s'échapper, les forts feront la loi, place à une nouvelle ère !"])
+        Momo = Character("Momo", None,"Un jeune souverain du Pays de Wa et fils du héros de ce pays" ,["Je te le jures Luffy, je vais battre Kaido !"])
         
         
         
