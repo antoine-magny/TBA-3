@@ -9,7 +9,6 @@ from player import Player
 from command import Command
 from actions import Actions
 from character import Character
-# from config import DEBUG
 
 class Game :
     """
@@ -401,7 +400,6 @@ class Game :
 
     def move_characters(self):
         """Déplace un seul PNJ aléatoire vers une sortie aléatoire par tour."""
-        # Créer une liste de tous les PNJs dans toutes les pièces
         all_characters = []
         for room in self.rooms:
             for name, character in room.characters.items():
@@ -417,14 +415,12 @@ class Game :
                 exits.append(exit)
 
         if not exits:
-            return  # Pas de sorties valides pour déplacer le PNJ
+            return  
 
-        # Déplacer le PNJ vers une pièce aléatoire
         new_room = random.choice(exits)
         new_room.characters[name] = character
         del current_room.characters[name]
         character.current_room = new_room
-        # Afficher un message pour signaler le déplacement
         print(f"\n{character.name} s'est déplacé vers {new_room.name}.")
 
     # Play the game
