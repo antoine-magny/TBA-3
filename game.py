@@ -2,14 +2,13 @@
 
 # Import modules
 
+import random
 from room import Room
 from player import Player
 from command import Command
 from actions import Actions
-from item import Item
 from character import Character
-import random
-from config import DEBUG
+# from config import DEBUG
 
 class Game :
     """
@@ -38,122 +37,366 @@ class Game :
         # Setup commands
         help = Command("help", " : afficher cette aide", Actions.help, 0)
         self.commands["help"] = help
+
         quit = Command("quit", " : quitter le jeu", Actions.quit, 0)
         self.commands["quit"] = quit
         self.commands["exit"] = quit
-        go = Command("go", " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)", Actions.go, 1)
+
+        go = Command("go",
+        " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)",
+        Actions.go, 1)
         self.commands["go"] = go
-        history = Command("history", " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)", Actions.history, 1)
+
+        history = Command("history",
+        " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)",
+        Actions.history, 1)
         self.commands["history"] = history
-        back = Command("back", " : revenir en arrièrre", Actions.back, 0)
+
+        back = Command("back", " : revenir en arrièrre",
+        Actions.back, 0)
         self.commands["back"] = back
-        check = Command("check", " : vérifier les objets dans votre inventaire", Actions.check, 0)
+
+        check = Command("check", " : vérifier les objets dans votre inventaire",
+        Actions.check, 0)
         self.commands["check"] = check
-        look = Command("look", " : observer les objets présents dans sur l'île", Actions.look, 0)
+
+        look = Command("look", " : observer les objets présents dans sur l'île",
+        Actions.look, 0)
         self.commands["look"] = look
-        take = Command("take", " 'objet' : prendre un objet sur l'île", Actions.take, 1)
+
+        take = Command("take", " 'objet' : prendre un objet sur l'île",
+        Actions.take, 1)
         self.commands["take"] = take
-        drop = Command("drop", " 'objet' : poser un objet sur l'île", Actions.drop, 1)
+
+        drop = Command("drop", " 'objet' : poser un objet sur l'île",
+        Actions.drop, 1)
         self.commands["drop"] = drop
-        talk = Command("talk", " <nom du PNJ> : discuter avec un personnage non joueur", Actions.talk, 1)
+
+        talk = Command("talk", " <nom du PNJ> : discuter avec un personnage non joueur",
+        Actions.talk, 1)
         self.commands["talk"] = talk
 
         # Nouveaux lieux :
         # Attention : format des descriptions des îles : "Vous êtes" + "description de l'île"
-        Arlong_Park = Room("Arlong_Park", "dans la base redoutable d'Arlong et de ses hommes-poissons. Une navigatrice y est retenue prisonnière.")
-        self.rooms.append(Arlong_Park)
-        Fuschia_Village = Room("Fuschia_Village", "dans le paisible village natal de Luffy, situé en bord de mer. Attention aux monstres marins qui rôdent autour !")
-        self.rooms.append(Fuschia_Village)
-        Shells_Town = Room("Shells_Town", "dans une ville où la Marine est omniprésente, dominée par une immense base militaire. Un certain Capitaine Morgan y fait régner la terreur. Il retient prisonnier un sabreur et un tireur d'élite.")
-        self.rooms.append(Shells_Town)
-        Baratie = Room("Baratie", "dans un restaurant flottant connu pour sa cuisine exceptionnelle et ses batailles épiques. Un certain Sanji y est chef cuisinier.")
-        self.rooms.append(Baratie)
-        Grand_Line = Room("Grand Line", "au milieu des mers se trouve un passage à sens unique vers la route des pirates !")
-        self.rooms.append(Grand_Line)
-        Royaume_de_Drum = Room("Royaume de Drum", "dans une île où le froid règne, on y trouve un certain médecin appelé Chopper.")
-        self.rooms.append(Royaume_de_Drum)
-        Pays_de_Wa = Room("Pays de Wa", "un pays où les samouraïs vivent en paix.")
-        self.rooms.append(Pays_de_Wa)
-        Dresserosa = Room("Dresserosa", "dans une ville où règne un tyran qui transforme ses malfaiteurs en jouets pour enfants.")
-        self.rooms.append(Dresserosa)
-        Little_Garden = Room("Little Garden", "une île où deux géants de 100 ans se battent pour la gloire.")
-        self.rooms.append(Little_Garden)
-        Alabasta = Room("Alabasta", "un royaume désertique où règne une lutte contre un crocodile des sables.")
-        self.rooms.append(Alabasta)
-        Skypiea = Room("Skypiea", "une île céleste, flottant dans un océan de nuages.")
-        self.rooms.append(Skypiea)
-        Laugh_Tale = Room("Laugh Tale", "une île légendaire : la dernière île de Grand Line. Vous avez trouvé le One Piece ! Félicitations !")
-        self.rooms.append(Laugh_Tale)
+        arlong_park = Room("arlong_park",
+        """dans la base redoutable d'Arlong et de ses hommes-poissons.
+        Une navigatrice y est retenue prisonnière.""")
+        self.rooms.append(arlong_park)
+
+        fuschia_village = Room("fuschia_village",
+        """dans le paisible village natal de Luffy, situé en bord de mer.
+        Attention aux monstres marins qui rôdent autour !""")
+        self.rooms.append(fuschia_village)
+
+        shells_town = Room("shells_town",
+        """dans une ville où la Marine est omniprésente,
+        dominée par une immense base militaire.
+        Un certain Capitaine Morgan y fait régner la terreur.
+        Il retient prisonnier un sabreur et un tireur d'élite.""")
+        self.rooms.append(shells_town)
+
+        baratie = Room("baratie",
+        """dans un restaurant flottant connu pour
+        sa cuisine exceptionnelle et ses batailles épiques.
+        Un certain sanji y est chef cuisinier.""")
+        self.rooms.append(baratie)
+
+        grand_line = Room("Grand Line",
+        """au milieu des mers se trouve un passage 
+        à sens unique vers la route des pirates !""")
+        self.rooms.append(grand_line)
+
+        royaume_de_drum = Room("Royaume de Drum",
+        """dans une île où le froid règne,
+        on y trouve un certain médecin appelé chopper.""")
+        self.rooms.append(royaume_de_drum)
+
+        pays_de_wa = Room("Pays de Wa",
+        "un pays où les samouraïs vivent en paix.")
+        self.rooms.append(pays_de_wa)
+
+        dresserosa = Room("dresserosa",
+        """dans une ville où règne un tyran qui transforme ses 
+        malfaiteurs en jouets pour enfants.""")
+        self.rooms.append(dresserosa)
+
+        little_garden = Room("Little Garden",
+        "une île où deux géants de 100 ans se battent pour la gloire.")
+        self.rooms.append(little_garden)
+
+        alabasta = Room("alabasta",
+        "un royaume désertique où règne une lutte contre un crocodile des sables.")
+        self.rooms.append(alabasta)
+
+        skypiea = Room("skypiea",
+        "une île céleste, flottant dans un océan de nuages.")
+        self.rooms.append(skypiea)
+
+        laugh_tale = Room("Laugh Tale",
+        """une île légendaire : la dernière île de Grand Line.
+        Vous avez trouvé le One Piece ! Félicitations !""")
+        self.rooms.append(laugh_tale)
 
         # Create exits for rooms
-        Fuschia_Village.exits = {"N": Arlong_Park, "E": Shells_Town, "S": Grand_Line, "O": Baratie, "U": None, "D": None}
-        Arlong_Park.exits = {"N": None, "E": None, "S": Fuschia_Village, "O": None, "U": None, "D": None}
-        Shells_Town.exits = {"N": None, "E": None, "S": None, "O": Fuschia_Village, "U": None, "D": None}
-        Baratie.exits = {"N": None, "E": Fuschia_Village, "S": None, "O": None, "U": None, "D": None}
-        Grand_Line.exits = {"N": None, "E": Royaume_de_Drum, "S": Alabasta, "O": Little_Garden, "U": None, "D": None}
-        Royaume_de_Drum.exits = {"N": None, "E": None, "S": Pays_de_Wa, "O": Grand_Line, "U": None, "D": None}
-        Pays_de_Wa.exits = {"N": Royaume_de_Drum, "E": None, "S": Laugh_Tale, "O": Alabasta, "U": None, "D": None}
-        Alabasta.exits = {"N": Grand_Line, "E": Pays_de_Wa, "S": "mort", "O": Dresserosa, "U": None, "D": None}
-        Dresserosa.exits = {"N": Little_Garden, "E": Alabasta, "S": "mort", "O": None, "U": None, "D": None}
-        Little_Garden.exits = {"N": None, "E": Grand_Line, "S": Dresserosa, "O": None, "U": Skypiea, "D": None}
-        Skypiea.exits = {"N": None, "E": None, "S": None, "O": None, "U": None, "D": Little_Garden}
-        Laugh_Tale.exits = {"N": Pays_de_Wa, "E": None, "S": None, "O": None, "U": None, "D": None}
+        fuschia_village.exits = {
+            "N": arlong_park,
+            "E": shells_town,
+            "S": grand_line,
+            "O": baratie,
+            "U": None,
+            "D": None
+        }
+        arlong_park.exits = {
+            "N": None,
+            "E": None,
+            "S": fuschia_village,
+            "O": None,
+            "U": None,
+            "D": None
+        }
+        shells_town.exits = {
+            "N": None,
+            "E": None,
+            "S": None,
+            "O": fuschia_village,
+            "U": None,
+            "D": None
+        }
+        baratie.exits = {
+            "N": None,
+            "E": fuschia_village,
+            "S": None,
+            "O": None,
+            "U": None,
+            "D": None
+        }
+        grand_line.exits = {
+            "N": None,
+            "E": royaume_de_drum,
+            "S": alabasta,
+            "O": little_garden,
+            "U": None,
+            "D": None
+        }
+        royaume_de_drum.exits = {
+            "N": None,
+            "E": None,
+            "S": pays_de_wa,
+            "O": grand_line,
+            "U": None,
+            "D": None
+        }
+        pays_de_wa.exits = {
+            "N": royaume_de_drum,
+            "E": None,
+            "S": laugh_tale,
+            "O": alabasta,
+            "U": None,
+            "D": None
+        }
+        alabasta.exits = {
+            "N": grand_line,
+            "E": pays_de_wa,
+            "S": "mort",
+            "O": dresserosa,
+            "U": None,
+            "D": None
+        }
+        dresserosa.exits = {
+            "N": little_garden,
+            "E": alabasta,
+            "S": "mort",
+            "O": None,
+            "U": None,
+            "D": None
+        }
+        little_garden.exits = {
+            "N": None,
+            "E": grand_line,
+            "S": dresserosa,
+            "O": None,
+            "U": skypiea,
+            "D": None
+        }
+        skypiea.exits = {
+            "N": None,
+            "E": None,
+            "S": None,
+            "O": None,
+            "U": None,
+            "D": little_garden
+        }
+        laugh_tale.exits = {
+            "N": pays_de_wa,
+            "E": None,
+            "S": None,
+            "O": None,
+            "U": None,
+            "D": None
+        }
 
         # Ajout des objets sur les îles
-        gomu_gomu_no_mi = {"description": "Fruit du démon qui donne des pouvoirs élastiques", "weight": 0.5}
-        Shimotsuki_Kozaburo_Katanas = {"description": "2 des 3 katanas de Zoro", "weight": 4.0}
-        wado_ichimonji = {"description": "L'épée donnée à titre posthume par Kuina à zoro ", "weight": 2.0}
-        shusui = {"description": "L'épée légendaire du samouraï Ryuma", "weight": 2.0}
-        lance_pierre = {"description": "L'arme de prédilection d'Usopp", "weight": 1.0}
-        Rumble_Ball = {"description": "Une Drogue rendant Chopper très puissant", "weight": 0.5}
-        Hana_Hana_no_Mi = {"description": "Fruit du démon des éclosions", "weight": 0.5}
-        Ito_Ito_No_Mi = {"description": "Fruit du démon des fils", "weight": 0.5}
-        Hache_du_Cogneur = {"description": "Une hache pour Dorry, un des géants de Little Garden", "weight": 100.0}
-        Epee_Brogy = {"description": "Une épée pour Brogy, un des géants les géants de Little Garden", "weight": 75.0}
-        Uo_Uo_no_Mi = {"description": "Fruit du dragon oriental", "weight": 4.0}
-        One_piece = {"description": "Le trésor le plus Grand de tout les temps"}
+        gomu_gomu_no_mi = {
+            "description": "Fruit du démon qui donne des pouvoirs élastiques",
+            "weight": 0.5
+        }
+        shimotsuki_kozaburo_katanas = {
+            "description": "2 des 3 katanas de zoro",
+            "weight": 4.0
+        }
+        wado_ichimonji = {
+            "description": "L'épée donnée à titre posthume par Kuina à zoro",
+            "weight": 2.0
+        }
+        shusui = {
+            "description": "L'épée légendaire du samouraï Ryuma",
+            "weight": 2.0
+        }
+        lance_pierre = {
+            "description": "L'arme de prédilection d'Usopp",
+            "weight": 1.0
+        }
+        rumble_ball = {
+            "description": "Une drogue rendant chopper très puissant",
+            "weight": 0.5
+        }
+        hana_hana_no_mi = {
+            "description": "Fruit du démon des éclosions",
+            "weight": 0.5
+        }
+        ito_ito_no_mi = {
+            "description": "Fruit du démon des fils",
+            "weight": 0.5
+        }
+        hache_du_cogneur = {
+            "description": "Une hache pour Dorry, un des géants de Little Garden",
+            "weight": 100.0
+        }
+        epee_brogy = {
+            "description": "Une épée pour brogy, un des géants de Little Garden",
+            "weight": 75.0
+        }
+        uo_uo_no_mi = {
+            "description": "Fruit du dragon oriental",
+            "weight": 4.0
+        }
+        one_piece = {
+            "description": "Le trésor le plus grand de tous les temps"
+        }
 
         # Ajout des objets sur les îles
         # lieu.inventory[clé] = valeur (la valeur étant le dictionnaire définit précédement)
-        Fuschia_Village.inventory["Gomu Gomu no Mi"] = gomu_gomu_no_mi
-        Shells_Town.inventory["Shimotsuki_Kozaburo_Katanas"] = Shimotsuki_Kozaburo_Katanas
-        Shells_Town.inventory["Wado Ichimonji"] = wado_ichimonji
-        Shells_Town.inventory["Shusui"] = shusui
-        Shells_Town.inventory["Lance-pierre"] = lance_pierre
-        Royaume_de_Drum.inventory["Rumble Ball"]= Rumble_Ball
-        Alabasta.inventory["Hana Hana no Mi"]= Hana_Hana_no_Mi
-        Dresserosa.inventory["Ito Ito no Mi"]= Ito_Ito_No_Mi
-        Little_Garden.inventory["Hache du Cogneur"]= Hache_du_Cogneur
-        Little_Garden.inventory["Terry Sword"]= Epee_Brogy
-        Pays_de_Wa.inventory["Uo Uo no Mi"]= Uo_Uo_no_Mi
-        Laugh_Tale.inventory["One Piece"]= One_piece
+        fuschia_village.inventory["Gomu Gomu no Mi"] = gomu_gomu_no_mi
+        shells_town.inventory["Shimotsuki Kozaburo Katanas"] = shimotsuki_kozaburo_katanas
+        shells_town.inventory["Wado Ichimonji"] = wado_ichimonji
+        shells_town.inventory["Shusui"] = shusui
+        shells_town.inventory["Lance-pierre"] = lance_pierre
+        royaume_de_drum.inventory["Rumble Ball"]= rumble_ball
+        alabasta.inventory["Hana Hana no Mi"]= hana_hana_no_mi
+        dresserosa.inventory["Ito Ito no Mi"]= ito_ito_no_mi
+        little_garden.inventory["Hache du Cogneur"]= hache_du_cogneur
+        little_garden.inventory["Terry Sword"]= epee_brogy
+        pays_de_wa.inventory["Uo Uo no Mi"]= uo_uo_no_mi
+        laugh_tale.inventory["One Piece"]= one_piece
 
         # Personnages :
         # Ajout des PNJ dans les pièces
-        makino = Character("Makino", None, "La serveuse du bar de Fuschia Village", ["Tu veux une bière, mon ptit ?", "Bois un jus Luffy !"])
-        arlong = Character("Arlong", None, "Chef des hommes-poissons et maître d'Arlong Park", ["Rendez-vous humains !", "Nami sera à moi pour toujours."])
-        Zoro = Character("Zoro",None, "Un sabreurà 3 épées " , [ "Les cicatrices sur le dos sont la honte d'un épéiste"])
-        Sanji = Character("Sanji",None, "Un cuisinier d'exception" , ["La cuisine est un don de dieu, les épices un don du diable... je crois que ce plat était un peu trop épicé pour toi !"])
-        Chopper = Character("Chopper", None,"Un reine médecin" ,["Luffy, si pour que tu atteins ton but je dois devenir un monstre, alors j'en deviendrais un !!"])
-        Robin = Character("Robin", None,"La seule personne sur la planete à lire les écritures anciennes" ,["L'histoire se répète sans cesse, mais les hommes ne peuvent retourner sur le passé"])
-        Dorry = Character("Dorry", None,"Un géant se battant pour la gloire" ,["La raison de ce combat, il y a belle lurette qu'on l'a oubliée"])
-        Brogy =Character("Brogy", None,"Un géant se battant pour la gloire" ,["Un siècle... ce fut vraiment un long combat!"])
-        Doflamigo = Character("Doflamigo", None,"Un tiran animé par le pouvoir" ,["Les faibles ne pourront pas s'échapper, les forts feront la loi, place à une nouvelle ère !"])
-        Momo = Character("Momo", None,"Un jeune souverain du Pays de Wa et fils du héros de ce pays" ,["Je te le jures Luffy, un jour je battrais battre Kaido !"])
+        makino = Character(
+            "Makino",
+            None,
+            "La serveuse du bar de Fuschia Village",
+            ["Tu veux une bière, mon ptit ?", "Bois un jus Luffy !"]
+        )
 
-        Fuschia_Village.characters = {"Makino": makino}
-        Arlong_Park.characters = {"Arlong": arlong}
-        Shells_Town.characters = {"Zoro": Zoro}
-        Baratie.characters = {"Sanji": Sanji}
-        Alabasta.characters = {"Robin": Robin}
-        Little_Garden.characters = {"Dorry": Dorry}
-        Little_Garden.characters = {"Brogy": Brogy}
-        Dresserosa.characters = {"Doflamigo": Doflamigo}
-        Pays_de_Wa.characters = {"Momo": Momo}
+        arlong = Character(
+            "Arlong",
+            None,
+            "Chef des hommes-poissons et maître d'Arlong Park",
+            ["Rendez-vous humains !", "Nami sera à moi pour toujours."]
+        )
+
+        zoro = Character(
+            "Zoro",
+            None,
+            "Un sabreur à 3 épées",
+            ["Les cicatrices sur le dos sont la honte d'un épéiste"]
+        )
+
+        sanji = Character(
+            "Sanji",
+            None,
+            "Un cuisinier d'exception",
+            [
+                "La cuisine est un don de dieu, les épices un don du diable... ",
+                "je crois que ce plat était un peu trop épicé pour toi !"
+            ]
+        )
+
+        chopper = Character(
+            "Chopper",
+            None,
+            "Un reine médecin",
+            [
+                "Luffy, si pour que tu atteignes ton but je dois devenir un monstre, "
+                "alors j'en deviendrais un !!"
+            ]
+        )
+
+        robin = Character(
+            "Robin",
+            None,
+            "La seule personne sur la planète à lire les écritures anciennes",
+            [
+                "L'histoire se répète sans cesse, mais les hommes ne peuvent "
+                "retourner sur le passé"
+            ]
+        )
+
+        dorry = Character(
+            "Dorry",
+            None,
+            "Un géant se battant pour la gloire",
+            ["La raison de ce combat, il y a belle lurette qu'on l'a oubliée"]
+        )
+
+        brogy = Character(
+            "Brogy",
+            None,
+            "Un géant se battant pour la gloire",
+            ["Un siècle... ce fut vraiment un long combat!"]
+        )
+
+        doflamigo = Character(
+            "Doflamigo",
+            None,
+            "Un tiran animé par le pouvoir",
+            [
+                "Les faibles ne pourront pas s'échapper, les forts feront la loi, "
+                "place à une nouvelle ère !"
+            ]
+        )
+
+        momo = Character(
+            "Momo",
+            None,
+            "Un jeune souverain du Pays de Wa et fils du héros de ce pays",
+            ["Je te le jure Luffy, un jour je battrai Kaido !"]
+        )
+
+        fuschia_village.characters = {"Makino": makino}
+        arlong_park.characters = {"Arlong": arlong}
+        shells_town.characters = {"zoro": zoro}
+        baratie.characters = {"sanji": sanji}
+        alabasta.characters = {"robin": robin}
+        little_garden.characters = {"dorry": dorry}
+        little_garden.characters = {"brogy": brogy}
+        dresserosa.characters = {"doflamigo": doflamigo}
+        pays_de_wa.characters = {"momo": momo}
+        royaume_de_drum.characters = {"chopper": chopper}
 
         # Setup player and starting room
         self.player = Player(input("\nEntrez votre nom: "))
-        self.player.current_room = Fuschia_Village
+        self.player.current_room = fuschia_village
 
     def move_characters(self):
         """Déplace un seul PNJ aléatoire vers une sortie aléatoire par tour."""
@@ -208,7 +451,8 @@ class Game :
 
         # If the command is not recognized, print an error message
         if command_word not in self.commands.keys():
-            print(f"\nCommande '{command_word}' non reconnue. Entrez 'help' pour voir la liste des commandes disponibles.\n")
+            print(f"""\nCommande '{command_word}' non reconnue.
+            Entrez 'help' pour voir la liste des commandes disponibles.\n""")
         # If the command is recognized, execute it
         else:
             command = self.commands[command_word]
@@ -216,7 +460,12 @@ class Game :
 
     # Print the welcome message
     def print_welcome(self):
-        print(f"\nBienvenue dans ce jeu d'aventure ! Votre pseudonyme est {self.player.name} et vous incarnez Luffy dans l'univers de One Piece.  Vous devez d'abord trouver des membres pour constituer votre équipage et lorsque vous serez prêts, vous pourrez partir sur Grand Line pour trouver le One Piece. Attention, une fois sur Grand Line vous ne pourrez pas faire marche arrière ! Bonne chance !")
+        print(f"""\nBienvenue dans ce jeu d'aventure !
+        Votre pseudonyme est {self.player.name} et vous incarnez Luffy dans l'univers de One Piece.
+        Quand vous aurez visité East blue (les premières îles du jeu), 
+        partez pour Grand Line au sud de Fuschia Village.
+        Mais attention ! Une fois sur Grand Line vous ne pourrez plus faire marche arrière !
+        Bonne chance !""")
         print("Entrez 'help' si vous avez besoin d'aide.")
         print(self.player.current_room.get_long_description())
 
