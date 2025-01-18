@@ -1,5 +1,6 @@
-# Description: Game class
-
+"""
+Description: Game class
+"""
 # Import modules
 
 import random

@@ -1,3 +1,7 @@
+"""
+Description: la classe Item
+"""
+
 
 class Item : 
     def __init__(self, name, description,weight): 

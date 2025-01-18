@@ -1,4 +1,6 @@
-# Description: The actions module.
+"""
+Description: The actions module.
+"""
 
 # The actions module contains the functions that are called when a command is executed.
 # Each function takes 3 parameters:
@@ -45,7 +47,7 @@ class Actions:
         >>> go(game, ["go"], 1)
         False
         """
-            
+
         player = game.player
         l = len(list_of_words)
         # If the number of parameters is incorrect, print an error message and return False.

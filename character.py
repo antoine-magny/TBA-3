@@ -1,7 +1,9 @@
+"""
+Description: la classe Character
+"""
 
 import random
 from config import DEBUG
-
 
 class Character():
     def __init__(self, name, current_room, description, msgs):
