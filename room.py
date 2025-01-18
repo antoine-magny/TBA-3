@@ -49,7 +49,7 @@ class Room:
             str: Une description des sorties.
         """
         exit_string = "Sorties: "
-        for exit_direction  in self.exits :
+        for exit_direction in self.exits :
             if self.exits[exit_direction] is not None:
                 exit_string = exit_string + exit_direction  + ", "
         exit_string = exit_string.strip(", ")

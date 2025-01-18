@@ -80,36 +80,33 @@ class Game :
         # Nouveaux lieux :
         # Attention : format des descriptions des îles : "Vous êtes" + "description de l'île"
         arlong_park = Room("arlong_park",
-        """dans la base redoutable d'Arlong et de ses hommes-poissons.
-        Une navigatrice y est retenue prisonnière.""")
+        "dans la base redoutable d'Arlong et de ses hommes-poissons.")
         self.rooms.append(arlong_park)
 
         fuschia_village = Room("fuschia_village",
-        """dans le paisible village natal de Luffy, situé en bord de mer.
-        Attention aux monstres marins qui rôdent autour !""")
+        "dans le paisible village natal de Luffy, situé en bord de mer. "
+        "Attention aux monstres marins qui rôdent autour !")
         self.rooms.append(fuschia_village)
 
         shells_town = Room("shells_town",
-        """dans une ville où la Marine est omniprésente,
-        dominée par une immense base militaire.
-        Un certain Capitaine Morgan y fait régner la terreur.
-        Il retient prisonnier un sabreur et un tireur d'élite.""")
+        "dans une ville où la Marine est omniprésente, "
+        "dominée par une immense base militaire.")
         self.rooms.append(shells_town)
 
         baratie = Room("baratie",
-        """dans un restaurant flottant connu pour
-        sa cuisine exceptionnelle et ses batailles épiques.
-        Un certain sanji y est chef cuisinier.""")
+        "dans un restaurant flottant connu pour "
+        "sa cuisine exceptionnelle et ses batailles épiques. "
+        "Un certain sanji y est chef cuisinier.")
         self.rooms.append(baratie)
 
         grand_line = Room("Grand Line",
-        """au milieu des mers se trouve un passage 
-        à sens unique vers la route des pirates !""")
+        "au milieu des mers se trouve un passage "
+        "à sens unique vers la route des pirates !")
         self.rooms.append(grand_line)
 
         royaume_de_drum = Room("Royaume de Drum",
-        """dans une île où le froid règne,
-        on y trouve un certain médecin appelé chopper.""")
+        "dans une île où le froid règne, "
+        "on y trouve un certain médecin appelé chopper.")
         self.rooms.append(royaume_de_drum)
 
         pays_de_wa = Room("Pays de Wa",
@@ -117,8 +114,8 @@ class Game :
         self.rooms.append(pays_de_wa)
 
         dresserosa = Room("dresserosa",
-        """dans une ville où règne un tyran qui transforme ses 
-        malfaiteurs en jouets pour enfants.""")
+        "dans une ville où règne un tyran qui transforme ses "
+        "malfaiteurs en jouets pour enfants.")
         self.rooms.append(dresserosa)
 
         little_garden = Room("Little Garden",
@@ -134,8 +131,8 @@ class Game :
         self.rooms.append(skypiea)
 
         laugh_tale = Room("Laugh Tale",
-        """une île légendaire : la dernière île de Grand Line.
-        Vous avez trouvé le One Piece ! Félicitations !""")
+        "une île légendaire : la dernière île de Grand Line. "
+        "Vous avez trouvé le One Piece ! Félicitations !")
         self.rooms.append(laugh_tale)
 
         # Create exits for rooms
@@ -328,8 +325,8 @@ class Game :
             None,
             "Un cuisinier d'exception",
             [
-                "La cuisine est un don de dieu, les épices un don du diable... ",
-                "je crois que ce plat était un peu trop épicé pour toi !"
+                "La cuisine est un don de dieu, les épices un don du diable... "
+                "Je crois que ce plat était un peu trop épicé pour toi !"
             ]
         )
 
@@ -461,12 +458,12 @@ class Game :
 
     # Print the welcome message
     def print_welcome(self):
-        print(f"""\nBienvenue dans ce jeu d'aventure !
-        Votre pseudonyme est {self.player.name} et vous incarnez Luffy dans l'univers de One Piece.
-        Quand vous aurez visité East blue (les premières îles du jeu), 
-        partez pour Grand Line au sud de Fuschia Village.
-        Mais attention ! Une fois sur Grand Line vous ne pourrez plus faire marche arrière !
-        Bonne chance !""")
+        print("\nBienvenue dans ce jeu d'aventure ! "
+        f"Votre pseudonyme est {self.player.name} et vous incarnez Luffy dans l'univers du manga One Piece. "
+        "Quand vous aurez visité East blue (les premières îles du jeu), "
+        "partez pour Grand Line au sud de Fuschia Village. "
+        "Mais attention ! Une fois sur Grand Line vous ne pourrez plus faire marche arrière ! "
+        "Bonne chance !")
         print("Entrez 'help' si vous avez besoin d'aide.")
         print(self.player.current_room.get_long_description())
 
