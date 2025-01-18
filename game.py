@@ -35,7 +35,10 @@ class Game :
         self.player = None
     # Setup the game
     def setup(self):
-        # Setup commands
+
+        """
+        Setup commands
+        """
         help = Command("help", " : afficher cette aide", Actions.help, 0)
         self.commands["help"] = help
 
@@ -426,6 +429,9 @@ class Game :
 
     # Play the game
     def play(self):
+        """
+        Fonction qui fait tourner le jeu en permanence.
+        """
         self.setup()
         self.print_welcome()
 
@@ -437,11 +443,12 @@ class Game :
 
     # Process the command entered by the player
     def process_command(self, command_string) -> None:
-
+        """
+        Récupère les commmandes tapés et exécute l'action ascociée
+        """
         #Affiche rien lorsque le joueur tape "entrer"
         if command_string=='':
             return None
-
         # Split the command string into a list of words
         list_of_words = command_string.split(" ")
 
@@ -455,11 +462,16 @@ class Game :
         else:
             command = self.commands[command_word]
             command.action(self, list_of_words, command.number_of_parameters)
+        return None
 
     # Print the welcome message
     def print_welcome(self):
+        """
+        Affiche le message de bienvenue.
+        """
         print("\nBienvenue dans ce jeu d'aventure ! "
-        f"Votre pseudonyme est {self.player.name} et vous incarnez Luffy dans l'univers du manga One Piece. "
+        f"Votre pseudonyme est {self.player.name} et vous incarnez "
+        "Luffy dans l'univers du manga One Piece. "
         "Quand vous aurez visité East blue (les premières îles du jeu), "
         "partez pour Grand Line au sud de Fuschia Village. "
         "Mais attention ! Une fois sur Grand Line vous ne pourrez plus faire marche arrière ! "
@@ -468,7 +480,9 @@ class Game :
         print(self.player.current_room.get_long_description())
 
 def main():
-    # Create a game object and play the game
+    """
+    Create a game object and play the game
+    """
     Game().play()
 
 if __name__ == "__main__":
