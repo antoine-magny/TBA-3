@@ -19,6 +19,13 @@ MSG1 = "\nLa commande '{command_word}' prend 1 seul paramètre.\n"
 
 
 class Actions:
+    """
+    Cette classe regroupe les fonctions qui définissent les actions disponibles dans le jeu.
+
+    Les fonctions de cette classe sont associées aux commandes disponibles pour le joueur
+    et permettent d'interagir avec l'environnement du jeu. 
+    """
+    @staticmethod
     def go(game, list_of_words, number_of_parameters):
         """
         Move the player in the direction specified by the parameter.
@@ -72,6 +79,7 @@ class Actions:
             print(f"Direction '{direction}' non reconnue.")
         return True
 
+    @staticmethod
     def quit(game, list_of_words, number_of_parameters):
         """
         Quit the game.
@@ -111,6 +119,7 @@ class Actions:
         game.finished = True
         return True
 
+    @staticmethod
     def help(game, list_of_words, number_of_parameters):
         """
         Print the list of available commands.
@@ -151,7 +160,12 @@ class Actions:
         print()
         return True
 
+    @staticmethod
     def look(game, list_of_words, number_of_parameters):
+        """
+        Affiche les objets et les personnages présents dans la pièce actuelle.
+        """
+
         l = len(list_of_words)
 
         if l != number_of_parameters + 1:
@@ -166,7 +180,12 @@ class Actions:
             print(f"- {name} : {character.description}")
         return True
 
-    def take(game, list_of_words, number_of_parameters):
+    @staticmethod
+    def take(game, list_of_words):
+        """
+        Permet au joueur de prendre un objet présent dans la pièce.
+        """
+
         player = game.player
         current_room = player.current_room
 
@@ -182,7 +201,12 @@ class Actions:
         print(f"\nL'objet '{item_name}' n'est pas présent sur cette île.")
         return False
 
-    def drop(game, list_of_words, number_of_parameters):
+    @staticmethod
+    def drop(game, list_of_words):
+        """
+        Permet au joueur de déposer un objet dans la pièce actuelle.
+        """
+
         player = game.player
         current_room = player.current_room
 
@@ -198,7 +222,12 @@ class Actions:
         print(f"\nL'objet '{item_name}' n'est pas dans votre inventaire.")
         return False
 
-    def history(game, list_of_words, number_of_parameters):
+    @staticmethod
+    def history(game):
+        """
+        Affiche l'historique des pièces visitées par le joueur.
+        """
+
         player = game.player
 
         if len(player.history_room) == 0:
@@ -210,11 +239,20 @@ class Actions:
             print(f"- {room.name}")
         return True
 
-    def back(game, list_of_words, number_of_parameters):
+    @staticmethod
+    def back(game):
+        """
+        Permet au joueur de revenir à la pièce précédente.
+        """
         player = game.player
         return player.back()
 
-    def check(game, list_of_words, number_of_parameters):
+    @staticmethod
+    def check(game):
+        """
+        Affiche l'inventaire du joueur.
+        """
+
         player = game.player
         if not player.inventory:
             print("\nVotre inventaire est vide.")
@@ -225,7 +263,12 @@ class Actions:
             print(f"- {nom} : {objet['description']} ({objet['weight']} kg)")
         return True
 
-    def talk(game, list_of_words, number_of_parameters):
+    @staticmethod
+    def talk(game, list_of_words):
+        """
+        Permet de parler à un personnage non-joueur dans la pièce actuelle.
+        """
+
         current_room = game.player.current_room
 
         if len(list_of_words) < 2:
