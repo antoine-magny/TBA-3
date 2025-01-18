@@ -50,9 +50,7 @@ class Game :
         Actions.go, 1)
         self.commands["go"] = go_c
 
-        history_c = Command("history",
-        " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)",
-        Actions.history, 1)
+        history_c = Command("history", " : permet de présenter l'historique", Actions.history, 1)
         self.commands["history"] = history_c
 
         back_c = Command("back", " : revenir en arrièrre",
