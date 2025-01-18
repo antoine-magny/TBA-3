@@ -65,7 +65,7 @@ class Game:
         
         Arlong_Park = Room("Arlong_Park", "dans la base redoutable d'Arlong et de ses hommes-poissons. Une navigatrice y est retenue prisonnière.")
         self.rooms.append(Arlong_Park)
-        
+
         Fuschia_Village = Room("Fuschia_Village", "dans le paisible village natal de Luffy, situé en bord de mer. Attention aux monstres marins qui rôdent autour !")
         self.rooms.append(Fuschia_Village)
 
@@ -155,7 +155,7 @@ class Game:
         Dorry = Character("Dorry", None,"Un géant se battant pour la gloire" ,["La raison de ce combat, il y a belle lurette qu'on l'a oubliée"])
         Brogy =Character("Brogy", None,"Un géant se battant pour la gloire" ,["Un siècle... ce fut vraiment un long combat!"])
         Doflamigo = Character("Doflamigo", None,"Un tiran animé par le pouvoir" ,["Les faibles ne pourront pas s'échapper, les forts feront la loi, place à une nouvelle ère !"])
-        Momo = Character("Momo", None,"Un jeune souverain du Pays de Wa et fils du héros de ce pays" ,["Je te le jures Luffy, je vais battre Kaido !"])
+        Momo = Character("Momo", None,"Un jeune souverain du Pays de Wa et fils du héros de ce pays" ,["Je te le jures Luffy, un jour je battrais battre Kaido !"])
         
         
         
