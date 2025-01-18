@@ -362,8 +362,8 @@ class Game :
             ]
         )
 
-        momo = Character(
-            "Momo",
+        momonosuke = Character(
+            "momonosuke",
             None,
             "Un jeune souverain du Pays de Wa et fils du héros de ce pays",
             ["Je te le jure Luffy, un jour je battrai Kaido !"]
@@ -377,7 +377,7 @@ class Game :
         little_garden.characters = {"dorry": dorry}
         little_garden.characters = {"brogy": brogy}
         dresserosa.characters = {"doflamigo": doflamigo}
-        pays_de_wa.characters = {"momo": momo}
+        pays_de_wa.characters = {"momonosuke": momonosuke}
         royaume_de_drum.characters = {"chopper": chopper}
 
         # Setup player and starting room
