@@ -50,7 +50,7 @@ class Room:
         """
         exit_string = "Sorties: "
         for exit_direction  in self.exits :
-            if self.exits.get(exit) is not None:
+            if self.exits[exit_direction] is not None:
                 exit_string = exit_string + exit_direction  + ", "
         exit_string = exit_string.strip(", ")
         return exit_string
