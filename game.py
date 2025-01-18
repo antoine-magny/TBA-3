@@ -275,9 +275,9 @@ class Game :
         # lieu.inventory[clé] = valeur (la valeur étant le dictionnaire définit précédement)
         fuschia_village.inventory["Gomu Gomu no Mi"] = gomu_gomu_no_mi
         shells_town.inventory["Shimotsuki Kozaburo Katanas"] = shimotsuki_kozaburo_katanas
-        shells_town.inventory["Wado Ichimonji"] = wado_ichimonji
-        shells_town.inventory["Shusui"] = shusui
-        shells_town.inventory["Lance-pierre"] = lance_pierre
+        baratie.inventory["Wado Ichimonji"] = wado_ichimonji
+        pays_de_wa.inventory["Shusui"] = shusui
+        dresserosa.inventory["Lance-pierre"] = lance_pierre
         royaume_de_drum.inventory["Rumble Ball"]= rumble_ball
         alabasta.inventory["Hana Hana no Mi"]= hana_hana_no_mi
         dresserosa.inventory["Ito Ito no Mi"]= ito_ito_no_mi
