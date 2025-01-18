@@ -38,46 +38,46 @@ class Game :
         """
         Setup commands
         """
-        help = Command("help", " : afficher cette aide", Actions.help, 0)
-        self.commands["help"] = help
+        help_c = Command("help", " : afficher cette aide", Actions.help, 0)
+        self.commands["help"] = help_c
 
-        quit = Command("quit", " : quitter le jeu", Actions.quit, 0)
-        self.commands["quit"] = quit
-        self.commands["exit"] = quit
+        quit_command = Command("quit", " : quitter le jeu", Actions.quit, 0)
+        self.commands["quit"] = quit_command
+        self.commands["exit"] = quit_command
 
-        go = Command("go",
+        go_c = Command("go",
         " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)",
         Actions.go, 1)
-        self.commands["go"] = go
+        self.commands["go"] = go_c
 
-        history = Command("history",
+        history_c = Command("history",
         " <direction> : se déplacer dans une direction cardinale (N, E, S, O, U, D)",
         Actions.history, 1)
-        self.commands["history"] = history
+        self.commands["history"] = history_c
 
-        back = Command("back", " : revenir en arrièrre",
+        back_c = Command("back", " : revenir en arrièrre",
         Actions.back, 0)
-        self.commands["back"] = back
+        self.commands["back"] = back_c
 
-        check = Command("check", " : vérifier les objets dans votre inventaire",
+        check_c = Command("check", " : vérifier les objets dans votre inventaire",
         Actions.check, 0)
-        self.commands["check"] = check
+        self.commands["check"] = check_c
 
-        look = Command("look", " : observer les objets présents dans sur l'île",
+        look_c = Command("look", " : observer les objets présents dans sur l'île",
         Actions.look, 0)
-        self.commands["look"] = look
+        self.commands["look"] = look_c
 
-        take = Command("take", " 'objet' : prendre un objet sur l'île",
+        take_c = Command("take", " 'objet' : prendre un objet sur l'île",
         Actions.take, 1)
-        self.commands["take"] = take
+        self.commands["take"] = take_c
 
-        drop = Command("drop", " 'objet' : poser un objet sur l'île",
+        drop_c = Command("drop", " 'objet' : poser un objet sur l'île",
         Actions.drop, 1)
-        self.commands["drop"] = drop
+        self.commands["drop"] = drop_c
 
-        talk = Command("talk", " <nom du PNJ> : discuter avec un personnage non joueur",
+        talk_c = Command("talk", " <nom du PNJ> : discuter avec un personnage non joueur",
         Actions.talk, 1)
-        self.commands["talk"] = talk
+        self.commands["talk"] = talk_c
 
         # Nouveaux lieux :
         # Attention : format des descriptions des îles : "Vous êtes" + "description de l'île"
@@ -102,7 +102,7 @@ class Game :
         self.rooms.append(baratie)
 
         grand_line = Room("Grand Line",
-        "au milieu des mers se trouve un passage "
+        "au milieu des mers où se trouve un passage "
         "à sens unique vers la route des pirates !")
         self.rooms.append(grand_line)
 
@@ -410,12 +410,12 @@ class Game :
         name, character, current_room = random.choice(all_characters)
 
         exits = []
-        for exit in current_room.exits.values():
-            if isinstance(exit, Room):
-                exits.append(exit)
+        for exit_i in current_room.exits.values():
+            if isinstance(exit_i, Room):
+                exits.append(exit_i)
 
         if not exits:
-            return  
+            return
 
         new_room = random.choice(exits)
         new_room.characters[name] = character
@@ -435,7 +435,7 @@ class Game :
         while self.finished is not True:
             self.process_command(input("> "))
             self.move_characters()
-        return None
+        return
 
     # Process the command entered by the player
     def process_command(self, command_string) -> None:

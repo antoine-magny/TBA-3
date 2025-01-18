@@ -181,7 +181,7 @@ class Actions:
         return True
 
     @staticmethod
-    def take(game, list_of_words):
+    def take(game, list_of_words, number_of_parameters):
         """
         Permet au joueur de prendre un objet présent dans la pièce.
         """
@@ -202,7 +202,7 @@ class Actions:
         return False
 
     @staticmethod
-    def drop(game, list_of_words):
+    def drop(game, list_of_words, number_of_parameters):
         """
         Permet au joueur de déposer un objet dans la pièce actuelle.
         """
@@ -223,7 +223,7 @@ class Actions:
         return False
 
     @staticmethod
-    def history(game):
+    def history(game, list_of_words, number_of_parameters):
         """
         Affiche l'historique des pièces visitées par le joueur.
         """
@@ -240,7 +240,7 @@ class Actions:
         return True
 
     @staticmethod
-    def back(game):
+    def back(game, list_of_words, number_of_parameters):
         """
         Permet au joueur de revenir à la pièce précédente.
         """
@@ -248,7 +248,7 @@ class Actions:
         return player.back()
 
     @staticmethod
-    def check(game):
+    def check(game, list_of_words, number_of_parameters):
         """
         Affiche l'inventaire du joueur.
         """
@@ -264,7 +264,7 @@ class Actions:
         return True
 
     @staticmethod
-    def talk(game, list_of_words):
+    def talk(game, list_of_words, number_of_parameters):
         """
         Permet de parler à un personnage non-joueur dans la pièce actuelle.
         """
