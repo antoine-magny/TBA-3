@@ -130,10 +130,7 @@ class Game :
         "une île céleste, flottant dans un océan de nuages.")
         self.rooms.append(skypiea)
 
-        laugh_tale = Room("Laugh Tale",
-        "une île légendaire : la dernière île de Grand Line. "
-        "Vous avez trouvé le One Piece ! Félicitations !")
-        self.rooms.append(laugh_tale)
+
 
         # Create exits for rooms
         fuschia_village.exits = {
@@ -187,7 +184,7 @@ class Game :
         pays_de_wa.exits = {
             "N": royaume_de_drum,
             "E": None,
-            "S": laugh_tale,
+            "S": "laugh_tale",
             "O": alabasta,
             "U": None,
             "D": None
@@ -223,14 +220,6 @@ class Game :
             "O": None,
             "U": None,
             "D": little_garden
-        }
-        laugh_tale.exits = {
-            "N": pays_de_wa,
-            "E": None,
-            "S": None,
-            "O": None,
-            "U": None,
-            "D": None
         }
 
         # Ajout des objets sur les îles
@@ -295,7 +284,6 @@ class Game :
         little_garden.inventory["Hache du Cogneur"]= hache_du_cogneur
         little_garden.inventory["Terry Sword"]= epee_brogy
         pays_de_wa.inventory["Uo Uo no Mi"]= uo_uo_no_mi
-        laugh_tale.inventory["One Piece"]= one_piece
 
         # Personnages :
         # Ajout des PNJ dans les pièces
