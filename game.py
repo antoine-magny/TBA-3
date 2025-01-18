@@ -106,7 +106,7 @@ class Game :
 
         royaume_de_drum = Room("Royaume de Drum",
         "dans une île où le froid règne, "
-        "on y trouve un certain médecin appelé chopper.")
+        "on y trouve un certain médecin appelé Chopper.")
         self.rooms.append(royaume_de_drum)
 
         pays_de_wa = Room("Pays de Wa",
@@ -244,7 +244,7 @@ class Game :
             "weight": 1.0
         }
         rumble_ball = {
-            "description": "Une drogue rendant chopper très puissant",
+            "description": "Une drogue rendant Chopper très puissant",
             "weight": 0.5
         }
         hana_hana_no_mi = {
